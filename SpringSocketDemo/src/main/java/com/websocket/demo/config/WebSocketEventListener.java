@@ -23,7 +23,8 @@ public class WebSocketEventListener {
                     .type(MessageType.LEAVE)
                     .sender(username)
                     .build();
-
+            int n = chatMessage.UpdateCountDisconnect();
+            chatMessage.setCount(n);
             messageSendingOperations.convertAndSend("/topic/public", chatMessage);
         }
     }
